@@ -1,0 +1,92 @@
+CREATE TABLE Users (
+    uid CHAR(8),
+    name CHAR(20),
+    dob DATE,
+    PRIMARY KEY (uid)
+);
+
+CREATE TABLE Sellers (
+    uid CHAR(8) NOT NULL,
+    Is_Active CHAR(1),
+    PRIMARY KEY(uid),
+    FOREIGN KEY (uid) REFERENCES Users
+        ON DELETE CASCADE
+);
+
+CREATE TABLE Buyers (
+    uid CHAR(8) NOT NULL,
+    registeration_date DATE,
+    PRIMARY KEY(uid),
+    FOREIGN KEY (uid) REFERENCES Users
+        ON DELETE CASCADE    
+);
+
+CREATE TABLE Conditions (
+    cid CHAR(8),
+    details VARCHAR(255),
+    PRIMARY KEY (cid)
+);
+
+CREATE TABLE Listings (
+    lid CHAR(8),
+    product_name VARCHAR(20),
+    uid CHAR(8) NOT NULL,
+    cid CHAR(8),
+    PRIMARY KEY (lid),
+    FOREIGN KEY (cid) REFERENCES Conditions,
+    FOREIGN KEY (uid) REFERENCES Sellers
+        ON DELETE NO ACTION
+);
+
+CREATE TABLE Listing_Tags (
+    lid CHAR(8),
+    tag VARCHAR(15),
+    PRIMARY KEY (lid, tag),
+    FOREIGN KEY (lid) REFERENCES Listings
+        ON DELETE CASCADE
+);
+
+CREATE TABLE Buyer_Bookmark_Lists (
+    name VARCHAR(20),
+    uid CHAR(8) NOT NULL,
+    PRIMARY KEY (name, uid),
+    FOREIGN KEY (uid) REFERENCES Buyers
+        ON DELETE CASCADE
+);
+
+CREATE TABLE Bookmarked_In (
+    lid CHAR(8),
+    name VARCHAR(20),
+    uid CHAR(8),
+    PRIMARY KEY (lid, name, uid),
+    FOREIGN KEY (uid) REFERENCES Buyer_Bookmark_Lists (uid),
+    FOREIGN KEY (name) REFERENCES Buyer_Bookmark_Lists (name),
+    FOREIGN KEY (lid) REFERENCES Listings
+);
+
+CREATE TABLE Saved_Listings (
+    lid CHAR(8),
+    uid CHAR(8),
+    PRIMARY KEY (uid, lid),
+    FOREIGN KEY (uid) REFERENCES Buyers,
+    FOREIGN KEY (lid) REFERENCES Listings
+);
+
+CREATE TABLE Transactions (
+    buyer_uid CHAR(8),
+    seller_uid CHAR(8),
+    lid CHAR(8),
+    rate REAL,
+    PRIMARY KEY (buyer_uid, seller_uid, lid),
+    FOREIGN KEY (buyer_uid) REFERENCES Buyers,
+    FOREIGN KEY (seller_uid) REFERENCES Sellers,
+    FOREIGN KEY (lid) REFERENCES Listings
+);
+
+CREATE TABLE Purchases (
+    buyer_uid CHAR(8),
+    owner_uid CHAR(8),
+    PRIMARY KEY (buyer_uid, owner_uid),
+    FOREIGN KEY (buyer_uid) REFERENCES Sellers,
+    FOREIGN KEY (owner_uid) REFERENCES Sellers
+);
