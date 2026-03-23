@@ -1,0 +1,180 @@
+name: Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10' 
+
+      - name: install python packages
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install sqlparse==0.4.4
+          python3 -m pip install SQLAlchemy==2.0.19
+
+
+      - name: test q1
+        if: ${{ always() }}
+        run: |
+          rm -rf tests/run_dbs
+          mkdir -p tests/run_dbs
+          cp -r tests/dbs/* tests/run_dbs/
+          sh tests/run_query.sh 1
+
+
+      - name: test q2
+        if: ${{ always() }}
+        run: |
+          rm -rf tests/run_dbs
+          mkdir -p tests/run_dbs
+          cp -r tests/dbs/* tests/run_dbs/
+          sh tests/run_query.sh 2
+
+
+      - name: test q3
+        if: ${{ always() }}
+        run: |
+          rm -rf tests/run_dbs
+          mkdir -p tests/run_dbs
+          cp -r tests/dbs/* tests/run_dbs/
+          sh tests/run_query.sh 3
+
+
+      - name: test q4
+        if: ${{ always() }}
+        run: |
+          rm -rf tests/run_dbs
+          mkdir -p tests/run_dbs
+          cp -r tests/dbs/* tests/run_dbs/
+          sh tests/run_query.sh 4
+
+
+      - name: test q5
+        if: ${{ always() }}
+        run: |
+          rm -rf tests/run_dbs
+          mkdir -p tests/run_dbs
+          cp -r tests/dbs/* tests/run_dbs/
+          sh tests/run_query.sh 5
+
+
+      - name: test q6
+        if: ${{ always() }}
+        run: |
+          rm -rf tests/run_dbs
+          mkdir -p tests/run_dbs
+          cp -r tests/dbs/* tests/run_dbs/
+          sh tests/run_query.sh 6
+  
+
+      - name: test q7
+        if: ${{ always() }}
+        run: |
+          rm -rf tests/run_dbs
+          mkdir -p tests/run_dbs
+          cp -r tests/dbs/* tests/run_dbs/
+          sh tests/run_query.sh 7
+
+
+      - name: test q8
+        if: ${{ always() }}
+        run: |
+          rm -rf tests/run_dbs
+          mkdir -p tests/run_dbs
+          cp -r tests/dbs/* tests/run_dbs/
+          sh tests/run_query.sh 8
+
+          
+      - name: test q9
+        if: ${{ always() }}
+        run: |
+          rm -rf tests/run_dbs
+          mkdir -p tests/run_dbs
+          cp -r tests/dbs/* tests/run_dbs/
+          sh tests/run_query.sh 9
+
+
+      - name: test q10
+        if: ${{ always() }}
+        run: |
+          rm -rf tests/run_dbs
+          mkdir -p tests/run_dbs
+          cp -r tests/dbs/* tests/run_dbs/
+          sh tests/run_query.sh 10
+
+
+
+
+
+
+      - name: test steps1
+        if: ${{ always() }}
+        run: |
+          sh tests/run_steps.sh 1
+
+
+      - name: test steps2
+        if: ${{ always() }}
+        run: |
+          sh tests/run_steps.sh 2
+
+
+      - name: test steps3
+        if: ${{ always() }}
+        run: |
+          sh tests/run_steps.sh 3
+
+
+      - name: test steps4
+        if: ${{ always() }}
+        run: |
+          sh tests/run_steps.sh 4
+
+
+      - name: test steps5
+        if: ${{ always() }}
+        run: |
+          sh tests/run_steps.sh 5
+
+
+      - name: test steps6
+        if: ${{ always() }}
+        run: |
+          sh tests/run_steps.sh 6
+  
+
+      - name: test steps7
+        if: ${{ always() }}
+        run: |
+          sh tests/run_steps.sh 7
+
+
+      - name: test steps8
+        if: ${{ always() }}
+        run: |
+          sh tests/run_steps.sh 8
+
+          
+      - name: test steps9
+        if: ${{ always() }}
+        run: |
+          sh tests/run_steps.sh 9
+
+
+      - name: test steps10
+        if: ${{ always() }}
+        run: |
+          sh tests/run_steps.sh 10

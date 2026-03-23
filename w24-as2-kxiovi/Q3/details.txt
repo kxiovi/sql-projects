@@ -1,0 +1,5 @@
+agent: NA
+Details: Select bid and member columns
+from borrowings where the difference b/w
+the end_date and start_date is >14 and
+priority is less than 5

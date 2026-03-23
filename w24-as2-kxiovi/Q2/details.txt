@@ -1,0 +1,10 @@
+agent: N/A
+Details: Select the required columns from 
+borrowings and members tables. 
+Where emails in borrowing equal the emails
+in members (join condition) and 
+the faculty of the member is CS (get
+book_id that are borrowed by those
+from CS faculty) AND 
+book_id is of books that are authored 
+by authors that have John or Marry in them.

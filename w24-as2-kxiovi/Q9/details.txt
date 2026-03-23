@@ -1,0 +1,11 @@
+agent: NA
+Details: 
+https://www.w3resource.com/sqlite/sqlite-strftime.php
+https://www.w3schools.com/sql/func_sqlserver_coalesce.asp
+https://www.sqlitetutorial.net/sqlite-functions/sqlite-ifnull/ 
+Was having issues with where to use DISTINCT and also
+0 being part of AVG calculations when I simply wanted it to 
+replace null.
+Fixed the distinct issues by trial and error. 
+Fixed the IFNULL issues by research (see links above)
+left joined to be able to access data from 3 different table (not including books)

@@ -1,0 +1,19 @@
+agent: NA
+Details: 
+https://stackoverflow.com/questions/1400078/is-it-possible-to-specify-condition-in-count
+https://stackoverflow.com/questions/1404627/sql-maxsomething-0-type-solution
+Create a CTE to represent the desired columns, and left join bia email members. 
+B/c members is left table, all emails will be displayed. 
+In the CTE (grouping by members.email):
+count the pid in penalties (by email), 
+count the paid penalties using the inequality
+and sum the paid_amount if it's greater than the penalities.amount. (I used CASE WHEN referenced above
+like an if statement.)
+left join:
+members.email = borrowings.member (basically, associate every email to borrowings data)
+INNER JOIN:
+borrowings.bid = penalities.bid (instead assoc every bid with (existing) penalty record (fails 
+test case) only assoc the the bid's present in both penalities and borrowings.)
+Thus, all members are included, even those not on penalties
+last was a left join, but this failed test case (included Mike) thus is an inner join
+b/c we only want the email of members that are in the cte.

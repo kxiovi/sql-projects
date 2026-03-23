@@ -1,0 +1,9 @@
+agent: NA
+Details: Learned about DENSE_RANK(): https://www.sqlshack.com/overview-of-sql-rank-functions/
+Select the desired columns. In FROM is a table. 
+This table uses dense_rank instead of rank (because rank skips numbers
+while dense_rank doesn't). DENSE_RANK is order in descending order (from high to low borrowings). 
+THe left join is so that each book id is joined to borrowings, whether it checked out or not
+allowing for access to book_id, title, pyear and the amount of borrowings all from 1 table.
+It is grouped by the columns in SELECT. 
+Where condition means that the top 3 most borrowed books (including ties) are returned.

@@ -1,0 +1,7 @@
+agent: NA
+Details:
+https://www.techonthenet.com/sqlite/views.php
+Used book_info view.
+Joined members.email = borrowings.email to access members' borrowing info. 
+Joined members to book_info as well. 
+Used to conditions specified to fill out WHERE clause

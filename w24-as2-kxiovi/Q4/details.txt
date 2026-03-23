@@ -1,0 +1,12 @@
+agent: NA
+Details: select the columns we want to display, 
+count each instance of a specific book_id, and find
+the max of the start_date (to get the most recent date).
+Left outer join borrowings on the book_id column
+of borrowings. 
+As a venn diagram, the left table (borrowings)
+and the intersection of borrowings and books
+will be returned. 
+The book must be published after 2001. 
+Grouped by the same col as in SELECT. 
+(technically works with just books.book_id).

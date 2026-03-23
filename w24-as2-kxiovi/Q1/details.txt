@@ -1,0 +1,7 @@
+agent: NA
+Details: From members m, I get name and email. 
+From borrowings b, I get member. 
+From waitlists w, I get member. 
+If the same book is present in both borrowings and waitlists, 
+and a member is part of both borrowings and waitlists (found by comparing emails), 
+then the query is satisfied.

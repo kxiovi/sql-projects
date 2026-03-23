@@ -1,0 +1,11 @@
+agent: NA
+Details: Select the desired columns. 
+The inner join is to books and borrowings based on book_id
+enabling the retrieval of the count of the books. 
+The left join is borrowings (left) to waitlists (right) via book_id.
+Meaning, All the rows of the left, and the matching rows of the right
+are returned. Thus, all borrowings with and without people of the 
+waitlist are returned. 
+Where pyear is <= 2015 and bcount > 1.
+grouped by books.book_id and books.title
+and bcount >= 2 times the amount of people that have waitlisted the book.

@@ -1,0 +1,9 @@
+agent: NA
+Details: select the required columns, and 
+calculate the average of the ratings (raverage). 
+Inner join reviews table to books table using book_id.
+Group by the required columns. 
+If count of the reviews for a single book is greater than 2
+(this is calculated according to the groups) then 
+order by raverage in descending order and limit to 
+the top 3 results. 
